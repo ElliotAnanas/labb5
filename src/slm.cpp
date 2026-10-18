@@ -10,11 +10,9 @@
 #include "NGramModel.h"
 #include "TextGenerator.h"
 
-namespace {
+static const char *USAGE = "usage: slm [-a pseudocount] k textfile length";
 
-const char *USAGE = "usage: slm [-a pseudocount] k textfile length";
-
-std::size_t parsePositiveInt(const std::string &s, const std::string &what) {
+static std::size_t parsePositiveInt(const std::string &s, const std::string &what) {
     if (s.empty() || !std::all_of(s.begin(), s.end(), [](unsigned char c) { return std::isdigit(c); }))
         throw std::invalid_argument(what + " must be a positive integer, got '" + s + "'");
     std::size_t v;
@@ -27,7 +25,7 @@ std::size_t parsePositiveInt(const std::string &s, const std::string &what) {
     return v;
 }
 
-double parsePseudocount(const std::string &s) {
+static double parsePseudocount(const std::string &s) {
     std::size_t pos = 0;
     double v;
     try {
@@ -39,8 +37,6 @@ double parsePseudocount(const std::string &s) {
         throw std::invalid_argument("-a needs a non-negative number, got '" + s + "'");
     return v;
 }
-
-}  // namespace
 
 int main(int argc, char *argv[]) {
     try {
