@@ -1,0 +1,5 @@
+The files moby_dick.txt and a_modest_proposal.txt are due to The Gutenberg Project.
+Please respect their license terms when redistributing.
+
+* Moby Dick: https://www.gutenberg.org/ebooks/1080
+* A modest proposal: https://www.gutenberg.org/ebooks/1080
